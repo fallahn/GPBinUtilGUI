@@ -37,21 +37,30 @@
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFbx = new System.Windows.Forms.TabPage();
+            this.numericUpDownTanBitan = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxTanBitan = new System.Windows.Forms.CheckBox();
+            this.checkBoxSceneMaterial = new System.Windows.Forms.CheckBox();
+            this.numericUpDownNodeID = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxNodeID = new System.Windows.Forms.CheckBox();
             this.tabPageFont = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxFontFormat = new System.Windows.Forms.ComboBox();
+            this.checkBoxFontPreview = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxFontSizes = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabPageNormalMap = new System.Windows.Forms.TabPage();
-            this.textBoxJobList = new System.Windows.Forms.TextBox();
             this.buttonEncode = new System.Windows.Forms.Button();
             this.buttonAddJob = new System.Windows.Forms.Button();
             this.buttonRemoveJob = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxFontSizes = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.checkBoxFontPreview = new System.Windows.Forms.CheckBox();
-            this.comboBoxFontFormat = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.listBoxJobs = new System.Windows.Forms.ListBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPageFbx.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTanBitan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNodeID)).BeginInit();
             this.tabPageFont.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,15 +85,18 @@
             // 
             // enableLoggingToolStripMenuItem
             // 
+            this.enableLoggingToolStripMenuItem.Checked = true;
+            this.enableLoggingToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.enableLoggingToolStripMenuItem.Name = "enableLoggingToolStripMenuItem";
-            this.enableLoggingToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.enableLoggingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.enableLoggingToolStripMenuItem.Text = "Enable Logging";
+            this.enableLoggingToolStripMenuItem.Click += new System.EventHandler(this.enableLoggingToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -129,12 +141,71 @@
             // tabPageFbx
             // 
             this.tabPageFbx.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageFbx.Controls.Add(this.numericUpDownTanBitan);
+            this.tabPageFbx.Controls.Add(this.checkBoxTanBitan);
+            this.tabPageFbx.Controls.Add(this.checkBoxSceneMaterial);
+            this.tabPageFbx.Controls.Add(this.numericUpDownNodeID);
+            this.tabPageFbx.Controls.Add(this.checkBoxNodeID);
             this.tabPageFbx.Location = new System.Drawing.Point(4, 22);
             this.tabPageFbx.Name = "tabPageFbx";
             this.tabPageFbx.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFbx.Size = new System.Drawing.Size(477, 216);
+            this.tabPageFbx.Size = new System.Drawing.Size(477, 199);
             this.tabPageFbx.TabIndex = 0;
             this.tabPageFbx.Text = "FBX Options";
+            // 
+            // numericUpDownTanBitan
+            // 
+            this.numericUpDownTanBitan.Location = new System.Drawing.Point(227, 55);
+            this.numericUpDownTanBitan.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDownTanBitan.Name = "numericUpDownTanBitan";
+            this.numericUpDownTanBitan.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDownTanBitan.TabIndex = 4;
+            // 
+            // checkBoxTanBitan
+            // 
+            this.checkBoxTanBitan.AutoSize = true;
+            this.checkBoxTanBitan.Location = new System.Drawing.Point(7, 55);
+            this.checkBoxTanBitan.Name = "checkBoxTanBitan";
+            this.checkBoxTanBitan.Size = new System.Drawing.Size(214, 17);
+            this.checkBoxTanBitan.TabIndex = 3;
+            this.checkBoxTanBitan.Text = "Generate Tan Space Normals for Node:";
+            this.checkBoxTanBitan.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSceneMaterial
+            // 
+            this.checkBoxSceneMaterial.AutoSize = true;
+            this.checkBoxSceneMaterial.Location = new System.Drawing.Point(7, 31);
+            this.checkBoxSceneMaterial.Name = "checkBoxSceneMaterial";
+            this.checkBoxSceneMaterial.Size = new System.Drawing.Size(129, 17);
+            this.checkBoxSceneMaterial.TabIndex = 2;
+            this.checkBoxSceneMaterial.Text = "Output scene material";
+            this.checkBoxSceneMaterial.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownNodeID
+            // 
+            this.numericUpDownNodeID.Location = new System.Drawing.Point(105, 7);
+            this.numericUpDownNodeID.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDownNodeID.Name = "numericUpDownNodeID";
+            this.numericUpDownNodeID.Size = new System.Drawing.Size(39, 20);
+            this.numericUpDownNodeID.TabIndex = 1;
+            // 
+            // checkBoxNodeID
+            // 
+            this.checkBoxNodeID.AutoSize = true;
+            this.checkBoxNodeID.Location = new System.Drawing.Point(7, 7);
+            this.checkBoxNodeID.Name = "checkBoxNodeID";
+            this.checkBoxNodeID.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxNodeID.TabIndex = 0;
+            this.checkBoxNodeID.Text = "Only node ID:";
+            this.checkBoxNodeID.UseVisualStyleBackColor = true;
             // 
             // tabPageFont
             // 
@@ -152,96 +223,14 @@
             this.tabPageFont.TabIndex = 1;
             this.tabPageFont.Text = "Font Options";
             // 
-            // tabPageNormalMap
+            // label5
             // 
-            this.tabPageNormalMap.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageNormalMap.Location = new System.Drawing.Point(4, 22);
-            this.tabPageNormalMap.Name = "tabPageNormalMap";
-            this.tabPageNormalMap.Size = new System.Drawing.Size(477, 216);
-            this.tabPageNormalMap.TabIndex = 2;
-            this.tabPageNormalMap.Text = "Normal Map Options";
-            // 
-            // textBoxJobList
-            // 
-            this.textBoxJobList.Location = new System.Drawing.Point(12, 327);
-            this.textBoxJobList.Multiline = true;
-            this.textBoxJobList.Name = "textBoxJobList";
-            this.textBoxJobList.ReadOnly = true;
-            this.textBoxJobList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxJobList.Size = new System.Drawing.Size(485, 153);
-            this.textBoxJobList.TabIndex = 5;
-            // 
-            // buttonEncode
-            // 
-            this.buttonEncode.Location = new System.Drawing.Point(422, 486);
-            this.buttonEncode.Name = "buttonEncode";
-            this.buttonEncode.Size = new System.Drawing.Size(75, 23);
-            this.buttonEncode.TabIndex = 8;
-            this.buttonEncode.Text = "Encode";
-            this.buttonEncode.UseVisualStyleBackColor = true;
-            // 
-            // buttonAddJob
-            // 
-            this.buttonAddJob.Location = new System.Drawing.Point(422, 289);
-            this.buttonAddJob.Name = "buttonAddJob";
-            this.buttonAddJob.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddJob.TabIndex = 7;
-            this.buttonAddJob.Text = "Add Job";
-            this.buttonAddJob.UseVisualStyleBackColor = true;
-            // 
-            // buttonRemoveJob
-            // 
-            this.buttonRemoveJob.Location = new System.Drawing.Point(12, 487);
-            this.buttonRemoveJob.Name = "buttonRemoveJob";
-            this.buttonRemoveJob.Size = new System.Drawing.Size(112, 23);
-            this.buttonRemoveJob.TabIndex = 6;
-            this.buttonRemoveJob.Text = "Remove Selected";
-            this.buttonRemoveJob.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 311);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Job Queue:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 18);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Sizes:";
-            // 
-            // textBoxFontSizes
-            // 
-            this.textBoxFontSizes.Location = new System.Drawing.Point(54, 15);
-            this.textBoxFontSizes.Name = "textBoxFontSizes";
-            this.textBoxFontSizes.Size = new System.Drawing.Size(192, 20);
-            this.textBoxFontSizes.TabIndex = 1;
-            this.textBoxFontSizes.Text = "10,12,14";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(268, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Comma Separated List of Font Sizes";
-            // 
-            // checkBoxFontPreview
-            // 
-            this.checkBoxFontPreview.AutoSize = true;
-            this.checkBoxFontPreview.Location = new System.Drawing.Point(271, 51);
-            this.checkBoxFontPreview.Name = "checkBoxFontPreview";
-            this.checkBoxFontPreview.Size = new System.Drawing.Size(99, 17);
-            this.checkBoxFontPreview.TabIndex = 3;
-            this.checkBoxFontPreview.Text = "Output Preview";
-            this.checkBoxFontPreview.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 52);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Format:";
             // 
             // comboBoxFontFormat
             // 
@@ -255,25 +244,119 @@
             this.comboBoxFontFormat.Size = new System.Drawing.Size(192, 21);
             this.comboBoxFontFormat.TabIndex = 4;
             // 
-            // label5
+            // checkBoxFontPreview
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Format:";
+            this.checkBoxFontPreview.AutoSize = true;
+            this.checkBoxFontPreview.Location = new System.Drawing.Point(271, 51);
+            this.checkBoxFontPreview.Name = "checkBoxFontPreview";
+            this.checkBoxFontPreview.Size = new System.Drawing.Size(99, 17);
+            this.checkBoxFontPreview.TabIndex = 3;
+            this.checkBoxFontPreview.Text = "Output Preview";
+            this.checkBoxFontPreview.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(268, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(177, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Comma Separated List of Font Sizes";
+            // 
+            // textBoxFontSizes
+            // 
+            this.textBoxFontSizes.Location = new System.Drawing.Point(54, 15);
+            this.textBoxFontSizes.Name = "textBoxFontSizes";
+            this.textBoxFontSizes.Size = new System.Drawing.Size(192, 20);
+            this.textBoxFontSizes.TabIndex = 1;
+            this.textBoxFontSizes.Text = "10,12,14";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Sizes:";
+            // 
+            // tabPageNormalMap
+            // 
+            this.tabPageNormalMap.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageNormalMap.Location = new System.Drawing.Point(4, 22);
+            this.tabPageNormalMap.Name = "tabPageNormalMap";
+            this.tabPageNormalMap.Size = new System.Drawing.Size(477, 199);
+            this.tabPageNormalMap.TabIndex = 2;
+            this.tabPageNormalMap.Text = "Normal Map Options";
+            // 
+            // buttonEncode
+            // 
+            this.buttonEncode.Location = new System.Drawing.Point(422, 486);
+            this.buttonEncode.Name = "buttonEncode";
+            this.buttonEncode.Size = new System.Drawing.Size(75, 23);
+            this.buttonEncode.TabIndex = 8;
+            this.buttonEncode.Text = "Encode";
+            this.buttonEncode.UseVisualStyleBackColor = true;
+            this.buttonEncode.Click += new System.EventHandler(this.buttonEncode_Click);
+            // 
+            // buttonAddJob
+            // 
+            this.buttonAddJob.Location = new System.Drawing.Point(422, 289);
+            this.buttonAddJob.Name = "buttonAddJob";
+            this.buttonAddJob.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddJob.TabIndex = 7;
+            this.buttonAddJob.Text = "Add Job";
+            this.buttonAddJob.UseVisualStyleBackColor = true;
+            this.buttonAddJob.Click += new System.EventHandler(this.buttonAddJob_Click);
+            // 
+            // buttonRemoveJob
+            // 
+            this.buttonRemoveJob.Location = new System.Drawing.Point(12, 487);
+            this.buttonRemoveJob.Name = "buttonRemoveJob";
+            this.buttonRemoveJob.Size = new System.Drawing.Size(112, 23);
+            this.buttonRemoveJob.TabIndex = 6;
+            this.buttonRemoveJob.Text = "Remove Selected";
+            this.buttonRemoveJob.UseVisualStyleBackColor = true;
+            this.buttonRemoveJob.Click += new System.EventHandler(this.buttonRemoveJob_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Job Queue:";
+            // 
+            // listBoxJobs
+            // 
+            this.listBoxJobs.FormattingEnabled = true;
+            this.listBoxJobs.Location = new System.Drawing.Point(12, 327);
+            this.listBoxJobs.Name = "listBoxJobs";
+            this.listBoxJobs.Size = new System.Drawing.Size(485, 147);
+            this.listBoxJobs.TabIndex = 10;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(130, 487);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(75, 23);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(509, 519);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.listBoxJobs);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonRemoveJob);
             this.Controls.Add(this.buttonAddJob);
             this.Controls.Add(this.buttonEncode);
-            this.Controls.Add(this.textBoxJobList);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.buttonBrowse);
             this.Controls.Add(this.textBoxFileIn);
@@ -290,6 +373,10 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPageFbx.ResumeLayout(false);
+            this.tabPageFbx.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTanBitan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNodeID)).EndInit();
             this.tabPageFont.ResumeLayout(false);
             this.tabPageFont.PerformLayout();
             this.ResumeLayout(false);
@@ -311,7 +398,6 @@
         private System.Windows.Forms.TabPage tabPageFbx;
         private System.Windows.Forms.TabPage tabPageFont;
         private System.Windows.Forms.TabPage tabPageNormalMap;
-        private System.Windows.Forms.TextBox textBoxJobList;
         private System.Windows.Forms.Button buttonEncode;
         private System.Windows.Forms.Button buttonAddJob;
         private System.Windows.Forms.Button buttonRemoveJob;
@@ -322,6 +408,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxFontFormat;
         private System.Windows.Forms.CheckBox checkBoxFontPreview;
+        private System.Windows.Forms.NumericUpDown numericUpDownTanBitan;
+        private System.Windows.Forms.CheckBox checkBoxTanBitan;
+        private System.Windows.Forms.CheckBox checkBoxSceneMaterial;
+        private System.Windows.Forms.NumericUpDown numericUpDownNodeID;
+        private System.Windows.Forms.CheckBox checkBoxNodeID;
+        private System.Windows.Forms.ListBox listBoxJobs;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
