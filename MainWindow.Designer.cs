@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableLoggingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,10 +38,8 @@
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFbx = new System.Windows.Forms.TabPage();
-            this.numericUpDownTanBitan = new System.Windows.Forms.NumericUpDown();
             this.checkBoxTanBitan = new System.Windows.Forms.CheckBox();
             this.checkBoxSceneMaterial = new System.Windows.Forms.CheckBox();
-            this.numericUpDownNodeID = new System.Windows.Forms.NumericUpDown();
             this.checkBoxNodeID = new System.Windows.Forms.CheckBox();
             this.tabPageFont = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,11 +55,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBoxJobs = new System.Windows.Forms.ListBox();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.textBoxOnlyNode = new System.Windows.Forms.TextBox();
+            this.textBoxBitan = new System.Windows.Forms.TextBox();
+            this.textBoxConsoleOutput = new System.Windows.Forms.TextBox();
+            this.textBoxConsoleInput = new System.Windows.Forms.TextBox();
+            this.buttonSubmit = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFbx.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTanBitan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNodeID)).BeginInit();
             this.tabPageFont.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +91,7 @@
             this.enableLoggingToolStripMenuItem.Checked = true;
             this.enableLoggingToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.enableLoggingToolStripMenuItem.Name = "enableLoggingToolStripMenuItem";
-            this.enableLoggingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enableLoggingToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.enableLoggingToolStripMenuItem.Text = "Enable Logging";
             this.enableLoggingToolStripMenuItem.Click += new System.EventHandler(this.enableLoggingToolStripMenuItem_Click);
             // 
@@ -96,7 +99,7 @@
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
             this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -135,44 +138,33 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 58);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(485, 225);
+            this.tabControl1.Size = new System.Drawing.Size(485, 139);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPageFbx
             // 
             this.tabPageFbx.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPageFbx.Controls.Add(this.numericUpDownTanBitan);
+            this.tabPageFbx.Controls.Add(this.textBoxBitan);
+            this.tabPageFbx.Controls.Add(this.textBoxOnlyNode);
             this.tabPageFbx.Controls.Add(this.checkBoxTanBitan);
             this.tabPageFbx.Controls.Add(this.checkBoxSceneMaterial);
-            this.tabPageFbx.Controls.Add(this.numericUpDownNodeID);
             this.tabPageFbx.Controls.Add(this.checkBoxNodeID);
             this.tabPageFbx.Location = new System.Drawing.Point(4, 22);
             this.tabPageFbx.Name = "tabPageFbx";
             this.tabPageFbx.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFbx.Size = new System.Drawing.Size(477, 199);
+            this.tabPageFbx.Size = new System.Drawing.Size(477, 113);
             this.tabPageFbx.TabIndex = 0;
             this.tabPageFbx.Text = "FBX Options";
-            // 
-            // numericUpDownTanBitan
-            // 
-            this.numericUpDownTanBitan.Location = new System.Drawing.Point(227, 55);
-            this.numericUpDownTanBitan.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.numericUpDownTanBitan.Name = "numericUpDownTanBitan";
-            this.numericUpDownTanBitan.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDownTanBitan.TabIndex = 4;
             // 
             // checkBoxTanBitan
             // 
             this.checkBoxTanBitan.AutoSize = true;
             this.checkBoxTanBitan.Location = new System.Drawing.Point(7, 55);
             this.checkBoxTanBitan.Name = "checkBoxTanBitan";
-            this.checkBoxTanBitan.Size = new System.Drawing.Size(214, 17);
+            this.checkBoxTanBitan.Size = new System.Drawing.Size(225, 17);
             this.checkBoxTanBitan.TabIndex = 3;
-            this.checkBoxTanBitan.Text = "Generate Tan Space Normals for Node:";
+            this.checkBoxTanBitan.Text = "Generate Tan Space Normals for Node(s):";
+            this.toolTip1.SetToolTip(this.checkBoxTanBitan, "Comma Separated list of node IDs\r\nlike,this,for,example");
             this.checkBoxTanBitan.UseVisualStyleBackColor = true;
             // 
             // checkBoxSceneMaterial
@@ -184,18 +176,6 @@
             this.checkBoxSceneMaterial.TabIndex = 2;
             this.checkBoxSceneMaterial.Text = "Output scene material";
             this.checkBoxSceneMaterial.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDownNodeID
-            // 
-            this.numericUpDownNodeID.Location = new System.Drawing.Point(105, 7);
-            this.numericUpDownNodeID.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.numericUpDownNodeID.Name = "numericUpDownNodeID";
-            this.numericUpDownNodeID.Size = new System.Drawing.Size(39, 20);
-            this.numericUpDownNodeID.TabIndex = 1;
             // 
             // checkBoxNodeID
             // 
@@ -219,7 +199,7 @@
             this.tabPageFont.Location = new System.Drawing.Point(4, 22);
             this.tabPageFont.Name = "tabPageFont";
             this.tabPageFont.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageFont.Size = new System.Drawing.Size(477, 199);
+            this.tabPageFont.Size = new System.Drawing.Size(477, 113);
             this.tabPageFont.TabIndex = 1;
             this.tabPageFont.Text = "Font Options";
             // 
@@ -285,36 +265,36 @@
             this.tabPageNormalMap.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageNormalMap.Location = new System.Drawing.Point(4, 22);
             this.tabPageNormalMap.Name = "tabPageNormalMap";
-            this.tabPageNormalMap.Size = new System.Drawing.Size(477, 199);
+            this.tabPageNormalMap.Size = new System.Drawing.Size(477, 113);
             this.tabPageNormalMap.TabIndex = 2;
             this.tabPageNormalMap.Text = "Normal Map Options";
             // 
             // buttonEncode
             // 
-            this.buttonEncode.Location = new System.Drawing.Point(422, 486);
+            this.buttonEncode.Location = new System.Drawing.Point(422, 385);
             this.buttonEncode.Name = "buttonEncode";
             this.buttonEncode.Size = new System.Drawing.Size(75, 23);
-            this.buttonEncode.TabIndex = 8;
+            this.buttonEncode.TabIndex = 10;
             this.buttonEncode.Text = "Encode";
             this.buttonEncode.UseVisualStyleBackColor = true;
             this.buttonEncode.Click += new System.EventHandler(this.buttonEncode_Click);
             // 
             // buttonAddJob
             // 
-            this.buttonAddJob.Location = new System.Drawing.Point(422, 289);
+            this.buttonAddJob.Location = new System.Drawing.Point(422, 203);
             this.buttonAddJob.Name = "buttonAddJob";
             this.buttonAddJob.Size = new System.Drawing.Size(75, 23);
-            this.buttonAddJob.TabIndex = 7;
+            this.buttonAddJob.TabIndex = 5;
             this.buttonAddJob.Text = "Add Job";
             this.buttonAddJob.UseVisualStyleBackColor = true;
             this.buttonAddJob.Click += new System.EventHandler(this.buttonAddJob_Click);
             // 
             // buttonRemoveJob
             // 
-            this.buttonRemoveJob.Location = new System.Drawing.Point(12, 487);
+            this.buttonRemoveJob.Location = new System.Drawing.Point(12, 386);
             this.buttonRemoveJob.Name = "buttonRemoveJob";
             this.buttonRemoveJob.Size = new System.Drawing.Size(112, 23);
-            this.buttonRemoveJob.TabIndex = 6;
+            this.buttonRemoveJob.TabIndex = 8;
             this.buttonRemoveJob.Text = "Remove Selected";
             this.buttonRemoveJob.UseVisualStyleBackColor = true;
             this.buttonRemoveJob.Click += new System.EventHandler(this.buttonRemoveJob_Click);
@@ -322,35 +302,81 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 311);
+            this.label2.Location = new System.Drawing.Point(9, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Job Queue:";
             // 
             // listBoxJobs
             // 
             this.listBoxJobs.FormattingEnabled = true;
-            this.listBoxJobs.Location = new System.Drawing.Point(12, 327);
+            this.listBoxJobs.Location = new System.Drawing.Point(12, 232);
             this.listBoxJobs.Name = "listBoxJobs";
             this.listBoxJobs.Size = new System.Drawing.Size(485, 147);
-            this.listBoxJobs.TabIndex = 10;
+            this.listBoxJobs.TabIndex = 7;
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(130, 487);
+            this.buttonClear.Location = new System.Drawing.Point(130, 386);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
-            this.buttonClear.TabIndex = 11;
+            this.buttonClear.TabIndex = 9;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // textBoxOnlyNode
+            // 
+            this.textBoxOnlyNode.Location = new System.Drawing.Point(238, 7);
+            this.textBoxOnlyNode.Name = "textBoxOnlyNode";
+            this.textBoxOnlyNode.Size = new System.Drawing.Size(162, 20);
+            this.textBoxOnlyNode.TabIndex = 12;
+            // 
+            // textBoxBitan
+            // 
+            this.textBoxBitan.Location = new System.Drawing.Point(238, 53);
+            this.textBoxBitan.Name = "textBoxBitan";
+            this.textBoxBitan.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBitan.TabIndex = 13;
+            // 
+            // textBoxConsoleOutput
+            // 
+            this.textBoxConsoleOutput.Location = new System.Drawing.Point(12, 415);
+            this.textBoxConsoleOutput.Multiline = true;
+            this.textBoxConsoleOutput.Name = "textBoxConsoleOutput";
+            this.textBoxConsoleOutput.ReadOnly = true;
+            this.textBoxConsoleOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxConsoleOutput.Size = new System.Drawing.Size(481, 102);
+            this.textBoxConsoleOutput.TabIndex = 11;
+            // 
+            // textBoxConsoleInput
+            // 
+            this.textBoxConsoleInput.Location = new System.Drawing.Point(12, 524);
+            this.textBoxConsoleInput.Name = "textBoxConsoleInput";
+            this.textBoxConsoleInput.Size = new System.Drawing.Size(404, 20);
+            this.textBoxConsoleInput.TabIndex = 12;
+            // 
+            // buttonSubmit
+            // 
+            this.buttonSubmit.Location = new System.Drawing.Point(422, 524);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
+            this.buttonSubmit.TabIndex = 13;
+            this.buttonSubmit.Text = "Submit";
+            this.toolTip1.SetToolTip(this.buttonSubmit, "Submits commands to the GP binary utility, for example when grouping fbx animatio" +
+        "ns");
+            this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 519);
+            this.ClientSize = new System.Drawing.Size(509, 559);
+            this.Controls.Add(this.buttonSubmit);
+            this.Controls.Add(this.textBoxConsoleInput);
+            this.Controls.Add(this.textBoxConsoleOutput);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.listBoxJobs);
             this.Controls.Add(this.label2);
@@ -364,8 +390,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(525, 554);
-            this.MinimumSize = new System.Drawing.Size(525, 554);
+            this.MaximumSize = new System.Drawing.Size(525, 594);
+            this.MinimumSize = new System.Drawing.Size(525, 594);
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -375,8 +401,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageFbx.ResumeLayout(false);
             this.tabPageFbx.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTanBitan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNodeID)).EndInit();
             this.tabPageFont.ResumeLayout(false);
             this.tabPageFont.PerformLayout();
             this.ResumeLayout(false);
@@ -408,13 +432,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxFontFormat;
         private System.Windows.Forms.CheckBox checkBoxFontPreview;
-        private System.Windows.Forms.NumericUpDown numericUpDownTanBitan;
         private System.Windows.Forms.CheckBox checkBoxTanBitan;
         private System.Windows.Forms.CheckBox checkBoxSceneMaterial;
-        private System.Windows.Forms.NumericUpDown numericUpDownNodeID;
         private System.Windows.Forms.CheckBox checkBoxNodeID;
         private System.Windows.Forms.ListBox listBoxJobs;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.TextBox textBoxBitan;
+        private System.Windows.Forms.TextBox textBoxOnlyNode;
+        private System.Windows.Forms.TextBox textBoxConsoleOutput;
+        private System.Windows.Forms.TextBox textBoxConsoleInput;
+        private System.Windows.Forms.Button buttonSubmit;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

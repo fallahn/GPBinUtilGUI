@@ -70,12 +70,14 @@ namespace GPBinUtilGUI
     public partial class MainWindow : Form
     {
         Process cmdProcess = new Process();
+        bool processRunning = false;
         
         public MainWindow()
         {
             InitializeComponent();
             comboBoxFontFormat.SelectedIndex = 0;
             cmdProcess.StartInfo.UseShellExecute = false;
+            //TODO we need to recreate the input line else we can reply to prompts from the encoder exe
             cmdProcess.StartInfo.RedirectStandardError = true;
             cmdProcess.StartInfo.RedirectStandardInput = true;
             cmdProcess.StartInfo.RedirectStandardOutput = true;
@@ -138,9 +140,17 @@ namespace GPBinUtilGUI
                 switch(tabControl1.SelectedIndex)
                 {
                     case 0: //fbx
-                        if (checkBoxNodeID.Checked) cmd += "-i " + numericUpDownNodeID.Value.ToString() + " ";
+                        if (checkBoxNodeID.Checked && textBoxOnlyNode.Text != string.Empty)
+                        {
+                            cmd += "-i \"" + textBoxOnlyNode.Text + "\" "; //TODO validate text input
+                        }
                         if (checkBoxSceneMaterial.Checked) cmd += "-m ";
-                        if (checkBoxTanBitan.Checked) cmd += "-tb " + numericUpDownTanBitan.Value.ToString() + " ";
+                        if (checkBoxTanBitan.Checked && textBoxBitan.Text != string.Empty)
+                        {
+                            string[] nodeList = textBoxBitan.Text.Split(',');
+                            foreach(string node in nodeList) //TODO validate text input
+                                cmd += "-tb \"" + node + "\" ";
+                        }
                         break;
                     case 1: //ttf
                         //validate textbox input
@@ -197,9 +207,13 @@ namespace GPBinUtilGUI
                 {
                     cmdProcess.StartInfo.Arguments = cmd;
                     cmdProcess.Start();
-                    consoleOutput.Append(cmdProcess.StandardOutput.ReadToEnd() + "\n" + cmdProcess.StandardError.ReadToEnd());
+                    processRunning = true;
+                    string output = cmdProcess.StandardOutput.ReadToEnd() + "\n" + cmdProcess.StandardError.ReadToEnd();
+                    consoleOutput.Append(output);
+                    textBoxConsoleOutput.AppendText(output);
                     cmdProcess.WaitForExit();
                     cmdProcess.Close();
+                    processRunning = false;
                 }
 
                 if(enableLoggingToolStripMenuItem.Checked)
@@ -214,6 +228,25 @@ namespace GPBinUtilGUI
         private void buttonClear_Click(object sender, EventArgs e)
         {
             if (listBoxJobs.Items.Count > 0) listBoxJobs.Items.Clear();
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            if (textBoxConsoleInput.Text == string.Empty) return;
+            string input = textBoxConsoleInput.Text + "\r\n";
+            textBoxConsoleInput.Text = string.Empty;
+
+            //do stuff with input
+            if(processRunning)
+            {
+                System.IO.StreamWriter sr = cmdProcess.StandardInput;
+                sr.WriteLine(input);
+                sr.Close();
+            }
+            else
+            {
+                textBoxConsoleOutput.AppendText(input);
+            }
         }
     }
 }
