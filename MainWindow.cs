@@ -151,6 +151,7 @@ namespace GPBinUtilGUI
                             foreach(string node in nodeList) //TODO validate text input
                                 cmd += "-tb \"" + node + "\" ";
                         }
+                        if (checkBoxGroupAnim.Checked) cmd += "-g:auto ";
                         break;
                     case 1: //ttf
                         //validate textbox input

@@ -38,6 +38,8 @@
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageFbx = new System.Windows.Forms.TabPage();
+            this.textBoxBitan = new System.Windows.Forms.TextBox();
+            this.textBoxOnlyNode = new System.Windows.Forms.TextBox();
             this.checkBoxTanBitan = new System.Windows.Forms.CheckBox();
             this.checkBoxSceneMaterial = new System.Windows.Forms.CheckBox();
             this.checkBoxNodeID = new System.Windows.Forms.CheckBox();
@@ -55,12 +57,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listBoxJobs = new System.Windows.Forms.ListBox();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.textBoxOnlyNode = new System.Windows.Forms.TextBox();
-            this.textBoxBitan = new System.Windows.Forms.TextBox();
             this.textBoxConsoleOutput = new System.Windows.Forms.TextBox();
             this.textBoxConsoleInput = new System.Windows.Forms.TextBox();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBoxGroupAnim = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageFbx.SuspendLayout();
@@ -144,6 +145,7 @@
             // tabPageFbx
             // 
             this.tabPageFbx.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageFbx.Controls.Add(this.checkBoxGroupAnim);
             this.tabPageFbx.Controls.Add(this.textBoxBitan);
             this.tabPageFbx.Controls.Add(this.textBoxOnlyNode);
             this.tabPageFbx.Controls.Add(this.checkBoxTanBitan);
@@ -155,6 +157,20 @@
             this.tabPageFbx.Size = new System.Drawing.Size(477, 113);
             this.tabPageFbx.TabIndex = 0;
             this.tabPageFbx.Text = "FBX Options";
+            // 
+            // textBoxBitan
+            // 
+            this.textBoxBitan.Location = new System.Drawing.Point(238, 53);
+            this.textBoxBitan.Name = "textBoxBitan";
+            this.textBoxBitan.Size = new System.Drawing.Size(162, 20);
+            this.textBoxBitan.TabIndex = 13;
+            // 
+            // textBoxOnlyNode
+            // 
+            this.textBoxOnlyNode.Location = new System.Drawing.Point(238, 7);
+            this.textBoxOnlyNode.Name = "textBoxOnlyNode";
+            this.textBoxOnlyNode.Size = new System.Drawing.Size(162, 20);
+            this.textBoxOnlyNode.TabIndex = 12;
             // 
             // checkBoxTanBitan
             // 
@@ -326,20 +342,6 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
-            // textBoxOnlyNode
-            // 
-            this.textBoxOnlyNode.Location = new System.Drawing.Point(238, 7);
-            this.textBoxOnlyNode.Name = "textBoxOnlyNode";
-            this.textBoxOnlyNode.Size = new System.Drawing.Size(162, 20);
-            this.textBoxOnlyNode.TabIndex = 12;
-            // 
-            // textBoxBitan
-            // 
-            this.textBoxBitan.Location = new System.Drawing.Point(238, 53);
-            this.textBoxBitan.Name = "textBoxBitan";
-            this.textBoxBitan.Size = new System.Drawing.Size(162, 20);
-            this.textBoxBitan.TabIndex = 13;
-            // 
             // textBoxConsoleOutput
             // 
             this.textBoxConsoleOutput.Location = new System.Drawing.Point(12, 415);
@@ -368,6 +370,16 @@
         "ns");
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            // 
+            // checkBoxGroupAnim
+            // 
+            this.checkBoxGroupAnim.AutoSize = true;
+            this.checkBoxGroupAnim.Location = new System.Drawing.Point(7, 79);
+            this.checkBoxGroupAnim.Name = "checkBoxGroupAnim";
+            this.checkBoxGroupAnim.Size = new System.Drawing.Size(109, 17);
+            this.checkBoxGroupAnim.TabIndex = 14;
+            this.checkBoxGroupAnim.Text = "Group Animations";
+            this.checkBoxGroupAnim.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -414,7 +426,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enableLoggingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxFileIn;
         private System.Windows.Forms.Button buttonBrowse;
@@ -443,6 +454,7 @@
         private System.Windows.Forms.TextBox textBoxConsoleInput;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox checkBoxGroupAnim;
     }
 }
 
